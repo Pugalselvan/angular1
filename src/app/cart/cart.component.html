@@ -1,0 +1,63 @@
+<div class="header">
+    <div class="header-left">
+      <p> YOUR SHOPPING BAG</p>
+    </div>
+</div>
+<div> 
+    <table class="timetable_sub">
+        <thead>
+            <tr>
+                	
+                <th>Items</th>
+                <th></th>
+                <th>size</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor=" let cart of cartItems; index as i;" >
+            <td> <img src="{{cart.p_img}}" ></td>
+            <td> <p>{{cart.p_variation}}_{{cart.p_name}}</p>
+                    Style #: {{cart.p_style}} <br>
+                    Color : {{cart.p_selected_color.name}} <br><br>
+                    <a routerLink="/description/{{cart.p_id}}"> <input type="button" value="edit" ></a> &nbsp;
+                    <input type="button" value="X Remove"> &nbsp;
+                    <input type="button" value="Save for Later"> &nbsp;
+            </td>
+            <td>{{cart.p_selected_size.code}}</td>
+            <td>{{cart.p_quantity}}</td>
+        <td> {{cart.p_price | currency}}</td>
+        </tr>        
+    </tbody></table>
+</div>
+<br><br>
+
+<div class="contact">
+
+  <span>
+    Need help <br> or have questions?<br><br><br>
+    Call customer Service <br> at 1-800-555-5555 <br><br><br>
+    <a href=""> chat with one <br> of our stylists </a> <br><br><br>
+    <a href=""> See return <br> & exchange policy</a>
+
+  </span>
+
+</div>
+<div class="promoCode"><label>ENTER A PROMOTION CODE OR GIFT CARD</label> &nbsp;&nbsp;
+<input type="text" name="promo" placholder="Enter Code" />
+<input class="btn" type="button" value="Apply">
+</div>
+<br><br><br><br><br><br>
+<div class="subtotal cf">
+      <ul>
+        <li class="totalRow"><span class="label">Subtotal</span><span class="value">{{cartTotalPrice | currency}}</span></li>
+        
+            <li class="totalRow"><span class="label">Promotion code</span><span class="value">$5.00</span></li>
+        
+              <li class="totalRow"><span class="label">Shipping</span><span class="value">$0.00</span></li>
+              <li class="totalRow final"><span class="label">Total</span><span class="value">$64.00</span></li>
+        <li class="totalRow"><input class="btn final" type="button" value="Checkout"></li>
+      </ul>
+      <br><br>
+    </div>

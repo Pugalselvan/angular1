@@ -1,0 +1,33 @@
+<div class="container">
+<div class="card">
+    <img src="{{pdtImgPath}}" style="height: 300px;">
+    <p>{{pdtName}}</p>
+    <h1 >{{pdtPrice | currency}}</h1>
+<form>
+    <div class="radio1">
+        <ul> 
+        <label> color: &nbsp;&nbsp;&nbsp;</label>
+         <li *ngFor= "let col of Pdtcolor"> <label>
+        <input type="radio" ng-model="col.name">
+        {{col.name}}
+            </label><br/>&nbsp;&nbsp;&nbsp;</li> 
+        </ul>
+    </div>
+    <br><br><br>
+    <div class="select1">
+        <select class="custom-select text-capitalize" id="searchCategory" name="catId" ngModel>
+            <option value="size">sizes</option>
+            <option *ngFor="let size of Pdtsizes" value="{{size.name}}">{{size.code}}</option>
+        </select>
+        &nbsp;&nbsp;&nbsp;
+        <select class="custom-select text-capitalize" id="searchCategory" name="catId" ngModel>
+            <option value="size">Qty</option>
+            <option *ngFor="let qty of pdtqty" value="{{qty}}">{{qty}}</option>
+        </select>
+    </div>
+    <br>
+    <p><button>Edit</button></p>
+</form>
+    <br><br>
+  </div>
+</div>
